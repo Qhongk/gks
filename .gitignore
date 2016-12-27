@@ -22,3 +22,16 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+
+# Logs
+logs
+*.log
+
+# output directory
+out
+
+# idea config directory
+.idea
+
+.DS_Store
