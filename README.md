@@ -1,0 +1,2 @@
+# gks
+go blog
