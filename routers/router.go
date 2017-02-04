@@ -3,14 +3,21 @@ package routers
 import (
 	"./../controllers"
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/context"
 )
 
 func init() {
 	beego.Router("/", &controllers.MainController{})
+	beego.Router("/article", &controllers.ArticleController{})
+	beego.Router("/api", &controllers.ApiController{})
 
-	beego.Get("/aaa", func(ctx *context.Context) {
-		ctx.Output.Body([]byte("hello world..."))
-	})
+	//beego.Get("/aaa", func(ctx *context.Context) {
+	//	ctx.Output.Body([]byte("hello world..."))
+	//})
+
+	beego.SetViewsPath("views")
+	beego.DelStaticPath("/static")
+	beego.SetStaticPath("/img", "img")
+	beego.SetStaticPath("/css", "css")
+	beego.SetStaticPath("/js", "js")
 
 }

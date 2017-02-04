@@ -20,9 +20,5 @@ import (
 
 func main() {
 	//beego.Router("/", &MainController{})
-	beego.SetViewsPath("views")
-	beego.SetStaticPath("/img", "static/img")
-	beego.SetStaticPath("/css", "static/css")
-	beego.SetStaticPath("/js", "static/js")
 	beego.Run()
 }
