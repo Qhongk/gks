@@ -7,6 +7,7 @@ import (
 
 func init() {
 	beego.Router("/", &controllers.MainController{})
+	beego.Router("/tpl", &controllers.MainController{}, "get:HelloTpl")
 	beego.Router("/article", &controllers.ArticleController{})
 	beego.Router("/api", &controllers.ApiController{})
 	beego.Router("/json", &controllers.JsonController{})
@@ -15,7 +16,7 @@ func init() {
 	//	ctx.Output.Body([]byte("hello world..."))
 	//})
 
-	beego.SetViewsPath("views")
+	//beego.SetViewsPath("views")
 	beego.DelStaticPath("/static")
 	beego.SetStaticPath("/img", "img")
 	beego.SetStaticPath("/css", "css")
