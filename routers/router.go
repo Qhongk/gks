@@ -22,4 +22,5 @@ func init() {
 	beego.SetStaticPath("/css", "css")
 	beego.SetStaticPath("/js", "js")
 
+	beego.AppConfig.Set("ext", "html")
 }
