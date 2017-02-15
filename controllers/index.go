@@ -6,35 +6,34 @@ import (
     "html/template"
     "fmt"
     "github.com/astaxie/beego/logs"
-    "gks/web/common"
 )
 
 type MainController struct {
     beego.Controller
 }
 
-type A struct {
-    Website string
-    Email   string
-}
-
 func (c *MainController) Get() {
-    c.Data["Website"] = "beego.me"
-    c.Data["Email"] = "astaxie@gmail.com"
-    c.Layout = "index.html"
-    c.TplName = "index.html"
+    c.Data["Website"] = "hello.me"
+    c.Data["Email"] = "xxx@gmail.com"
+    c.Layout = "layout.html"
+    c.TplName = "site/index.html"
 
-    fmt.Println(common.GetCurrentDirectory())
-
-    //c.Ctx.WriteString("hello world")
-    //c.Ctx.Redirect(200, "index")
+    c.LayoutSections = make(map[string]string)
+    c.LayoutSections["HtmlHead"] = "html_head.html"
+    c.LayoutSections["Scripts"] = "scripts.html"
+    c.LayoutSections["FootBar"] = "side_bar.html"
 }
+
+//type A struct {
+//    Website string
+//    Email   string
+//}
 
 func (c *MainController) HelloTpl() {
     c.Data["Website"] = "beego.me"
     c.Data["Email"] = "astaxie@gmail.com"
     //c.Layout = "index.html"
-    c.TplName = "index.tpl"
+    c.TplName = "site/index.html"
 
     //dat := &A{"beego.me", "astaxie@gmail.com"}
     val := beego.AppConfig.String("autorender")
@@ -43,6 +42,8 @@ func (c *MainController) HelloTpl() {
     logs.Info("autorender %s", val)
 
     renderTemplate(c.Ctx.ResponseWriter, "index", c.Data)
+    //c.Ctx.WriteString("hello world")
+    //c.Ctx.Redirect(200, "json")
 }
 
 // 渲染页面并输出
@@ -56,7 +57,7 @@ func renderTemplate(w http.ResponseWriter, file string, data interface{}) {
     //}
     // 获取页面内容
     t := template.New(file + ".html")
-    t, err := t.ParseFiles(rootPath + "/views/" + file + ".html")
+    t, err := t.ParseFiles(rootPath + "/views/site/" + file + ".html")
     if err != nil {
         fmt.Println(err)
     }

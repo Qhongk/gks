@@ -12,11 +12,6 @@ func init() {
     beego.Router("/api", &controllers.ApiController{})
     beego.Router("/json", &controllers.JsonController{})
 
-    //beego.Get("/aaa", func(ctx *context.Context) {
-    //	ctx.Output.Body([]byte("hello world..."))
-    //})
-
-    //beego.SetViewsPath("views")
     beego.DelStaticPath("/static")
     beego.SetStaticPath("/img", "img")
     beego.SetStaticPath("/css", "css")
