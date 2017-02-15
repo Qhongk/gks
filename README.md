@@ -1,4 +1,4 @@
-# gks
+# GKS
 with Golang
 
 ## Update Dependencies
