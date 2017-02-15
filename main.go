@@ -1,11 +1,8 @@
 package main
 
-//import (
-//"github.com/astaxie/beego"
-//)
 import (
-	_ "./routers"
-	"github.com/astaxie/beego"
+    _ "gks/routers"
+    "github.com/astaxie/beego"
 )
 
 //
@@ -19,6 +16,6 @@ import (
 //}
 
 func main() {
-	//beego.Router("/", &MainController{})
-	beego.Run()
+    //beego.Router("/", &MainController{})
+    beego.Run()
 }

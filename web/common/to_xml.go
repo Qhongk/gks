@@ -1,24 +1,6 @@
-package controllers
+package common
 
-import "github.com/astaxie/beego"
-import (
-    "encoding/xml"
-)
-
-type ApiController struct {
-    beego.Controller
-}
-
-type mystruct struct {
-    FieldOne string `xml:"field_one"`
-    FieldTwo string `xml:"field_two"`
-}
-
-func (c *ApiController) Get() {
-    mystruct := mystruct{"123", "333" }
-    c.Data["xml"] = &mystruct
-    c.ServeXML()
-}
+import "encoding/xml"
 
 // StringMap is a map[string]string.
 type StringMap map[string]string
