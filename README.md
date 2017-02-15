@@ -1,16 +1,12 @@
 # gks
 with Golang
 
-#################
-Blog
-#################
+## Update Dependencies
+$ go get github.com/astaxie/beego<br/>
+$ go get github.com/beego/bee<br/>
 
-# update dependencies
-$ go get github.com/astaxie/beego
-$ go get github.com/beego/bee
-
-## build
-$ go build -o gks main.go
-$ ./gks
-or
-bee run
+## Build/Run
+$ go build -o gks main.go<br/>
+$ ./gks<br/>
+or<br/>
+bee run<br/>
