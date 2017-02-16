@@ -14,3 +14,6 @@ $ go build -o gks main.go<br/>
 $ ./gks<br/>
 or<br/>
 bee run<br/>
+
+## Mysql Driver
+go get github.com/go-sql-driver/mysql
