@@ -6,6 +6,7 @@ import (
     "html/template"
     "fmt"
     "github.com/astaxie/beego/logs"
+    "gks/services"
 )
 
 type MainController struct {
@@ -22,20 +23,15 @@ func (c *MainController) Get() {
     c.LayoutSections["HtmlHead"] = "html_head.html"
     c.LayoutSections["Scripts"] = "scripts.html"
     c.LayoutSections["FootBar"] = "side_bar.html"
-}
 
-//type A struct {
-//    Website string
-//    Email   string
-//}
+    services.QueryArticle(2)
+}
 
 func (c *MainController) HelloTpl() {
     c.Data["Website"] = "beego.me"
     c.Data["Email"] = "astaxie@gmail.com"
-    //c.Layout = "index.html"
     c.TplName = "site/index.html"
 
-    //dat := &A{"beego.me", "astaxie@gmail.com"}
     val := beego.AppConfig.String("autorender")
 
     //logs.SetLogger(logs.AdapterConsole)
