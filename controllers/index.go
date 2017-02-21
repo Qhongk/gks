@@ -6,7 +6,6 @@ import (
     "html/template"
     "fmt"
     "github.com/astaxie/beego/logs"
-    "gks/services"
 )
 
 type MainController struct {
@@ -24,7 +23,7 @@ func (c *MainController) Get() {
     c.LayoutSections["Scripts"] = "scripts.html"
     c.LayoutSections["FootBar"] = "side_bar.html"
 
-    services.QueryArticle(2)
+    //services.QueryArticle(2)
 }
 
 func (c *MainController) HelloTpl() {
