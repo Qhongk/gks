@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+<div class="row">
+    <div class="hero-text">
+        <h1>Welcome to !</h1>
+        <p class="description">
+            Beego is a simple & powerful Go web framework which is inspired by tornado and sinatra.
+            <br />
+            Official website: <a href="http://{{.Website}}">{{.Website}}</a>
+            <br />
+            Contact me: {{.Email}}
+        </p>
+    </div>
+</div>
+<div id="editor">
+    <textarea :value="input" @input="update"></textarea>
+    <div v-html="compiledMarkdown"></div>
+</div>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
