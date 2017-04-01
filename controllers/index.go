@@ -44,7 +44,6 @@ func (c *MainController) HelloTpl() {
 // 渲染页面并输出
 func renderTemplate(w http.ResponseWriter, file string, data interface{}) {
     rootPath := "/Users/uc/develop/workspace/GoglandProjects/gks"
-    //"/Users/uc/develop/workspace/GoglandProjects/gks/views/index.tpl"
     //filePath := "./views/" + file + ".tpl"
     //b, _ := ioutil.ReadFile(filePath)
     //if b == nil {

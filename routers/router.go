@@ -16,7 +16,7 @@ func init() {
     beego.Router("/api", &controllers.ApiController{})
     beego.Router("/json", &controllers.JsonController{})
 
-    beego.DelStaticPath("/static")
+    beego.SetStaticPath("/static", beego.AppConfig.String("viewspath"))
     beego.SetStaticPath("/img", "img")
     beego.SetStaticPath("/css", "css")
     beego.SetStaticPath("/js", "js")

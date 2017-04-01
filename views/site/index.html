@@ -3,42 +3,66 @@
 <html>
 <body>
 <div class="row">
-    <div class="hero-text">
-        <h1>Welcome to !</h1>
-        <p class="description">
-            Beego is a simple & powerful Go web framework which is inspired by tornado and sinatra.
-            <br />
-            Official website: <a href="http://{{.Website}}">{{.Website}}</a>
-            <br />
-            Contact me: {{.Email}}
-        </p>
+    <div class="col-md-8">
+        <div class="hero-text">
+            <h1>Welcome to !</h1>
+            <p class="description">
+                Beego is a simple & powerful Go web framework which is inspired by tornado and sinatra.
+                <br />
+                Official website: <a href="http://{{.Website}}">{{.Website}}</a>
+                <br />
+                Contact me: {{.Email}}
+            </p>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div id="app">
+            <p>{{ message }}</p>
+            <input type="text" v-model="message"/>
+        </div>
+    </div>
+    <div class="col-md-4">
     </div>
 </div>
-<div id="app">
-    <p>{{ message }}</p>
-    <input type="text" v-model="message"/>
+<div class="row">
+    <div class="col-md-8">
+        <div id="editor">
+            <textarea v-model="md" @input="inputMarkdown"></textarea>
+            <textarea v-model="html" @input="inputHtml"></textarea>
+            <div v-html="html"></div>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
 </div>
-<div id="editor">
-    <textarea :value="input" @input="update"></textarea>
-    <div v-html="compiledMarkdown"></div>
-</div>
+<!--<div id="test-editormd">
+    <textarea name="content"  style="display:none;"></textarea>
+</div>-->
+
 <script type="text/javascript">
-    new Vue({
-        el: '#editor',
-        data: {
-            input: '# hello'
-        },
-        computed: {
-            compiledMarkdown: function () {
-                return marked(this.input, { sanitize: true })
+    $(document).ready(function() {
+
+        var editor = new Vue({
+            el: '#editor',
+            data: {
+                md: '# hello',
+                html: ''
+            },
+            ready: function() {
+                this.inputMarkdown();
+            },
+            methods: {
+                inputMarkdown: function() {
+                    this.html = marked(this.md);
+                },
+                inputHtml: function() {
+                    this.md = toMarkdown(this.html);
+                }
             }
-        },
-        methods: {
-            update: _.debounce(function (e) {
-                this.input = e.target.value
-            }, 300)
-        }
-    })
+        });
+    });
 </script>
 </body>
 </html>
